@@ -30,6 +30,12 @@ const Home: NextPage = () => {
               <p>Yeah, the Game of Life you know.</p>
             </a>
           </Link>
+          <Link href="/games/ursus">
+            <a className={styles.card}>
+              <h2>Ursus &rarr;</h2>
+              <p>A themed tetris game, maybe.</p>
+            </a>
+          </Link>
         </div>
       </main>
 
