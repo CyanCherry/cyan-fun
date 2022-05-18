@@ -32,7 +32,6 @@ const Ursus: NextPage = () => {
   const [score, setScore] = useState(0)
   const [state, setState] = useState<State>("start")
   const timer = useRef<NodeJS.Timer | undefined>(undefined)
-  const audio = useRef<HTMLAudioElement | null>(null)
 
   // make the starting shape randomly
   // and avoid "content does not match server-rendered HTML" issue
@@ -58,8 +57,7 @@ const Ursus: NextPage = () => {
       const down = active.down()
       down.print(solidPanel)
       setActive(down)
-      audio.current!.src = "/sounds/mixkit-arcade-game-jump-coin-216.wav"
-      audio.current?.play().catch(console.error)
+      new Audio("/sounds/mixkit-arcade-game-jump-coin-216.wav").play().catch(console.error)
     } catch (e) {
       if (e === ERR_CELL_NOT_EMPTY || e === ERR_OUT_OF_PANEL) {
         const newSolidPanel = active.print(solidPanel)
@@ -77,10 +75,8 @@ const Ursus: NextPage = () => {
           clearInterval(timer.current)
           setScore(score => score + 100 * completedRows.length ** 2)
           setTimeout(() => {
-            // todo move down uncompleted rows
             const panel = [...newSolidPanel]
-            audio.current!.src = "/sounds/mixkit-retro-game-notification-212.wav"
-            audio.current?.play().catch(console.error)
+            new Audio("/sounds/mixkit-retro-game-notification-212.wav").play().catch(console.error)
             completedRows.sort((a, b) => b - a).forEach(row => {
               panel.splice(row, 1)
             })
@@ -197,9 +193,9 @@ const Ursus: NextPage = () => {
     return active ? active.print(solidPanel) : solidPanel
   }, [active, solidPanel])
 
+  //todo UI for showing next shape
   return (
     <div className={styles.container}>
-      <audio ref={(ref) => audio.current = ref} style={{ display: "none" }}></audio>
       <div className={styles.next}>
         {JSON.stringify(next)}
       </div>
