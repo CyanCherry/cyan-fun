@@ -9,15 +9,14 @@
     "preinstall": "node ./scripts/preinstall.js"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.8.0",
-    "@mui/material": "^5.8.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.4",
     "next": "12.1.6",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "sass": "^1.51.0",
-    "xlsx": "^0.18.5"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.52.3"
   },
   "devDependencies": {
     "@types/node": "17.0.34",

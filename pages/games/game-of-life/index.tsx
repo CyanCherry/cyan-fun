@@ -1,7 +1,6 @@
 import { Button, Slider, Switch } from "@mui/material"
 import { useCallback, useEffect, useState } from "react"
 import styles from "./index.module.scss"
-import { NextPage } from "next"
 
 const NotAMatrixErr = new Error("not a matrix")
 
@@ -130,7 +129,7 @@ function evolute(world: boolean[][]): boolean[][] {
   return [...world]
 }
 
-const LifeGame: NextPage = () => {
+function LifeGame() {
   const [height, setHeight] = useState(16)
   const [width, setWidth] = useState(32)
   const [world, setWorld] = useState<boolean[][]>(initMatrix<boolean>({
