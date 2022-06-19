@@ -7,15 +7,76 @@
   flex-direction: column;
 }
 
+.tip {
+  font-family: 'VT323', monospace;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+
+  .home {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+$height: 50vh;
+$circle-diameter: 80px;
+$lint-width: 6px;
+$lint-border-radius: $lint-width * 0.5;
+
+$red: rgba(255, 0, 0, 0.5);
+$orange: rgba(253, 127, 11, 0.54);
+$yellow: rgba(235, 255, 0, 0.54);
+$green: rgba(22, 243, 3, 0.55);
+$blue: rgba(0, 133, 255, 0.53);
+$purple: rgba(190, 11, 224, 0.55);
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  height: 70vh;
-  width: 70vw;
-  transform-origin: center 5px;
-  animation: swing infinite ease-in-out 3.5s;
+  height: $height;
+  width: 60vw;
+  transform-origin: center $lint-border-radius;
+  animation: swing infinite ease-in-out 2.5s;
+}
+
+.lint {
+  width: $lint-width;
+  height: calc(#{$height} - #{$circle-diameter});
+  border-radius: $lint-width $lint-width 0 0;
+  background-color: lightgray;
+}
+
+.circle {
+  // to make the circle is divide into six equal parts
+  // there is x^2+y^2 equals to diameter, and x/y equals to √3
+
+  --offset-ratio: 1;
+  --shadow-depth: calc(#{$circle-diameter} * 0.2 * var(--offset-ratio));
+  --y-offset: calc(var(--shadow-depth) * 0.5);
+  --x-offset: calc(var(--y-offset) * 1.7320508076);
+
+  position: relative;
+  height: $circle-diameter;
+  width: $circle-diameter;
+  border-radius: 50%;
+  box-shadow: (
+          inset var(--x-offset) calc(-1 * var(--y-offset)) $red,
+          inset calc(-1 * var(--x-offset)) calc(-1 * var(--y-offset)) $yellow,
+          inset 0 var(--shadow-depth) $blue,
+          inset calc(-1 * var(--x-offset)) var(--y-offset) $green,
+          inset var(--x-offset) var(--y-offset) $purple,
+          inset 0 calc(-1 * var(--shadow-depth)) $orange,
+  );
+  animation: spin 2.5s ease-in-out infinite;
+}
+
+
+@property --offset-ratio {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
 }
 
 @keyframes swing {
@@ -30,68 +91,20 @@
   }
 }
 
-.lint {
-  width: 10px;
-  height: calc(100% - 100px);
-  background-color: lightgray;
-  border-radius: 5px;
-}
-
-
-$red: rgba(255, 0, 0, 0.5);
-$orange: rgba(253, 127, 11, 0.54);
-$yellow: rgba(235, 255, 0, 0.54);
-$green: rgba(22, 243, 3, 0.55);
-$blue: rgba(0, 133, 255, 0.53);
-$purple: rgba(190, 11, 224, 0.55);
-
-.circle {
-  $circle-diameter: 100px;
-  // to make the circle is divide into six equal parts
-  // there is x^2+y^2 equals to diameter, and x/y equals to √3
-
-  --offset-ratio: 1;
-  --shadow-depth: calc(#{$circle-diameter} * 0.2 * var(--offset-ratio));
-  --y-offset: calc(var(--shadow-depth) * 0.5);
-  --x-offset: calc(var(--y-offset) * 1.7320508076);
-
-  position: relative;
-  height: $circle-diameter;
-  width: $circle-diameter;
-  border-radius: 50%;
-  transition: all 3.5s ease-in-out;
-  margin-top: -5px;
-  box-shadow: (
-          inset var(--x-offset) calc(-1 * var(--y-offset)) $red,
-          inset calc(-1 * var(--x-offset)) calc(-1 * var(--y-offset)) $yellow,
-          inset 0 var(--shadow-depth) $blue,
-          inset calc(-1 * var(--x-offset)) var(--y-offset) $green,
-          inset var(--x-offset) var(--y-offset) $purple,
-          inset 0 calc(-1 * var(--shadow-depth)) $orange,
-  );
-  animation: spin 3.5s ease-in-out infinite;
-}
-
-@property --offset-ratio {
-  syntax: '<number>';
-  inherits: false;
-  initial-value: 1;
-}
-
 @keyframes spin {
   0% {
     --offset-ratio: 1;
     transform: rotate(0);
   }
   25% {
-    --offset-ratio: 2;
+    --offset-ratio: 1.5;
   }
   50% {
     --offset-ratio: 1;
     transform: rotate(360deg);
   }
   75% {
-    --offset-ratio: 2;
+    --offset-ratio: 1.5;
   }
   100% {
     --offset-ratio: 1;
