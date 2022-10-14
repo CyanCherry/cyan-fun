@@ -35,6 +35,12 @@ function Home() {
               <p>A themed tetris game, maybe.</p>
             </a>
           </Link>
+          <Link href="/sticky">
+            <a className={styles.card}>
+              <h2>Sticky Position &rarr;</h2>
+              <p>It made a cool effect, isn&#39;t it?</p>
+            </a>
+          </Link>
         </div>
       </main>
 
