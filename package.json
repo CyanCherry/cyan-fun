@@ -1,28 +1,69 @@
 {
   "name": "cyan-fun",
+  "packageManager": "pnpm@8.13.1+sha256.9e5f62ce5f2b7d4ceb3c2848f41cf0b33032c24d683c7088b53f62b1885fb246",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint --fix",
-    "preinstall": "node ./scripts/preinstall.js"
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/material": "^5.8.4",
-    "next": "12.1.6",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.52.3"
+    "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
-    "@types/node": "17.0.34",
-    "@types/react": "18.0.9",
-    "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6",
-    "typescript": "4.6.4"
+    "@rsbuild/core": "^0.2.13",
+    "@rsbuild/plugin-react": "^0.2.13",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.0"
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "quoteProps": "as-needed",
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "react"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "no-restricted-syntax": [
+        "warn",
+        {
+          "selector": "ExportDefaultDeclaration",
+          "message": "Prefer named exports"
+        }
+      ],
+      "no-empty": "error"
+    }
   }
 }
