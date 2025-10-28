@@ -28,16 +28,16 @@
 
 .title {
   margin-top: -64px;
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   font-size: 80px;
 }
 
 .world {
   @include flex-column;
   @include fit-content;
-  border: solid 1px #EEE;
+  border: solid 1px #eee;
   border-radius: 6px;
-  box-shadow: #DDDDDD 0 0 16px;
+  box-shadow: #dddddd 0 0 16px;
   padding: 8px;
   gap: 6px;
 }
@@ -51,7 +51,7 @@
 .cell {
   width: 24px;
   height: 24px;
-  transition: background-color .1s ease;
+  transition: background-color 0.1s ease;
   border-radius: 2px;
 
   &[data-alive="true"] {
@@ -59,12 +59,11 @@
   }
 
   &[data-alive="false"] {
-    background-color: #DDD;
+    background-color: #ddd;
   }
 }
 
 .label {
-
 }
 
 .operationArea {

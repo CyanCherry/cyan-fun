@@ -10,4 +10,9 @@ export const SPIN_KEYS = ["w", "ArrowUp"]
 export const LEFT_KEYS = ["a", "ArrowLeft"]
 export const RIGHT_KEYS = ["d", "ArrowRight"]
 export const QUICK_DOWN_KEYS = ["s", "ArrowDown", " "]
-export const ALL_KEYS = [...SPIN_KEYS, ...LEFT_KEYS, ...RIGHT_KEYS, ...QUICK_DOWN_KEYS]
+export const ALL_KEYS = [
+  ...SPIN_KEYS,
+  ...LEFT_KEYS,
+  ...RIGHT_KEYS,
+  ...QUICK_DOWN_KEYS,
+]

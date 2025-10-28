@@ -1,9 +1,11 @@
-import { Panel } from "../index"
+import type { Panel } from "../index"
 import { HEIGHT, WIDTH } from "../configure"
 
 export const ERR_ICONS_LEN = new Error("invalid icons LENGTH")
 export const ERR_OUT_OF_PANEL = new Error("OUT of game panel")
-export const ERR_CELL_NOT_EMPTY = new Error("trying to print to a NOT empty cell")
+export const ERR_CELL_NOT_EMPTY = new Error(
+  "trying to print to a NOT empty cell",
+)
 
 // immutable
 export interface Block {
@@ -12,34 +14,34 @@ export interface Block {
   readonly y: number
 }
 
-export namespace Blocks {
-  export function left(blocks: Block[]): Block[] {
-    return blocks.map(block => ({
+export const Blocks = {
+  left(blocks: Block[]): Block[] {
+    return blocks.map((block) => ({
       ...block,
       x: block.x - 1,
     }))
-  }
+  },
 
-  export function right(blocks: Block[]): Block[] {
-    return blocks.map(block => ({
+  right(blocks: Block[]): Block[] {
+    return blocks.map((block) => ({
       ...block,
       x: block.x + 1,
     }))
-  }
+  },
 
-  export function down(blocks: Block[]): Block[] {
-    return blocks.map(block => ({
+  down(blocks: Block[]): Block[] {
+    return blocks.map((block) => ({
       ...block,
       y: block.y + 1,
     }))
-  }
+  },
 
-  export function up(blocks: Block[]): Block[] {
-    return blocks.map(block => ({
+  up(blocks: Block[]): Block[] {
+    return blocks.map((block) => ({
       ...block,
       y: block.y - 1,
     }))
-  }
+  },
 }
 
 // immutable
@@ -63,7 +65,7 @@ export abstract class Shape {
 
   print(panel: readonly (string | null)[][]): Panel {
     const newPanel = [...panel]
-    this.blocks.forEach(block => {
+    this.blocks.forEach((block) => {
       if (block.y < 0) {
         return
       }

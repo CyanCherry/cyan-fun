@@ -11,12 +11,13 @@ $text-shadow: #aed5e5;
   align-items: center;
   justify-content: center;
   gap: 3vh;
-  background: linear-gradient(315deg,
-          $theme-yellow 0% 30%,
-          white 30% 50%,
-          $theme-yellow 50% 70%,
-          white 70% 85%,
-          $theme-yellow 85% 100%,
+  background: linear-gradient(
+    315deg,
+    $theme-yellow 0% 30%,
+    white 30% 50%,
+    $theme-yellow 50% 70%,
+    white 70% 85%,
+    $theme-yellow 85% 100%
   );
 
   .next {
@@ -45,7 +46,7 @@ $text-shadow: #aed5e5;
         justify-content: center;
         align-items: center;
         gap: 10%;
-        background-color: rgba(#EEE, 60%);
+        background-color: rgba(#eee, 60%);
 
         .button {
           border: none;
@@ -56,7 +57,7 @@ $text-shadow: #aed5e5;
           font-size: 3em;
           color: white;
           font-weight: bold;
-          font-family: 'VT323', monospace;
+          font-family: "VT323", monospace;
           background-color: rgba($border-color, 90%);
           transform: translateX(-1vh) translateY(-1vh);
           transition: 0.05s;
@@ -82,17 +83,17 @@ $text-shadow: #aed5e5;
             background-color: white;
           }
 
-          .cell:nth-child(2n+1) {
+          .cell:nth-child(2n + 1) {
             background-color: $bg-grey;
           }
         }
 
-        &:nth-child(2n+1) {
+        &:nth-child(2n + 1) {
           .cell:nth-child(2n) {
             background-color: $bg-grey;
           }
 
-          .cell:nth-child(2n+1) {
+          .cell:nth-child(2n + 1) {
             background-color: white;
           }
         }
@@ -109,7 +110,6 @@ $text-shadow: #aed5e5;
     width: fit-content;
     height: 60%;
 
-
     .scoreBorder {
       height: 1vw;
       display: flex;
@@ -118,7 +118,7 @@ $text-shadow: #aed5e5;
       .scoreBorderFragment {
         border-radius: 50px;
         background-color: $theme-yellow;
-        box-shadow: .15vw .15vw $text-shadow;
+        box-shadow: 0.15vw 0.15vw $text-shadow;
       }
     }
   }
@@ -127,7 +127,7 @@ $text-shadow: #aed5e5;
     font-family: "VT323", monospace;
     color: $theme-yellow;
     font-size: 6.5vw;
-    text-shadow: .15vw .15vw $text-shadow;
+    text-shadow: 0.15vw 0.15vw $text-shadow;
   }
 
   // todo spin animation

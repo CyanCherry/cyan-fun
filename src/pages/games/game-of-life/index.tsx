@@ -137,7 +137,7 @@ export function LifeGame() {
       width,
       height,
       defaultValue: false,
-    })
+    }),
   )
   const [step, setStep] = useState(1000)
   const [automata, setAutomata] = useState<number | null>(null)
@@ -166,7 +166,7 @@ export function LifeGame() {
       world[row][column] = !world[row][column]
       setWorld([...world])
     },
-    [world]
+    [world],
   )
 
   return (
@@ -193,7 +193,7 @@ export function LifeGame() {
           <span className={styles.label}>Auto</span>
           <Switch
             checked={Boolean(automata)}
-            onChange={(e, v) => {
+            onChange={(_, v) => {
               if (v) {
                 setAutomata(setInterval(evoluteWorld, step))
               } else {
@@ -213,7 +213,7 @@ export function LifeGame() {
             value={step}
             min={SpeedMarks[0].value}
             max={SpeedMarks[SpeedMarks.length - 1].value}
-            onChange={(e, v) => {
+            onChange={(_, v) => {
               if (!Array.isArray(v)) {
                 setStep(v)
                 if (automata) {

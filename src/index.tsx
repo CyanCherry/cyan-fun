@@ -21,5 +21,5 @@ root.render(
         <Route path="*" element={<_404 />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 )

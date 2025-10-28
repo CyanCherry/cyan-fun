@@ -1,4 +1,4 @@
-import { Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
+import { type Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
 import { WIDTH } from "../configure"
 
 export class Square extends Shape {

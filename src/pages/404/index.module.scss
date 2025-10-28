@@ -8,7 +8,7 @@
 }
 
 .tip {
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   font-size: 4rem;
   margin-bottom: 3rem;
 
@@ -62,19 +62,18 @@ $purple: rgba(190, 11, 224, 0.55);
   width: $circle-diameter;
   border-radius: 50%;
   box-shadow: (
-          inset var(--x-offset) calc(-1 * var(--y-offset)) $red,
-          inset calc(-1 * var(--x-offset)) calc(-1 * var(--y-offset)) $yellow,
-          inset 0 var(--shadow-depth) $blue,
-          inset calc(-1 * var(--x-offset)) var(--y-offset) $green,
-          inset var(--x-offset) var(--y-offset) $purple,
-          inset 0 calc(-1 * var(--shadow-depth)) $orange,
+    inset var(--x-offset) calc(-1 * var(--y-offset)) $red,
+    inset calc(-1 * var(--x-offset)) calc(-1 * var(--y-offset)) $yellow,
+    inset 0 var(--shadow-depth) $blue,
+    inset calc(-1 * var(--x-offset)) var(--y-offset) $green,
+    inset var(--x-offset) var(--y-offset) $purple,
+    inset 0 calc(-1 * var(--shadow-depth)) $orange
   );
   animation: spin 2.5s ease-in-out infinite;
 }
 
-
 @property --offset-ratio {
-  syntax: '<number>';
+  syntax: "<number>";
   inherits: false;
   initial-value: 1;
 }

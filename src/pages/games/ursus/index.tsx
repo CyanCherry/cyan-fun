@@ -26,7 +26,7 @@ type State = {
   status: Status
 }
 
-export class Ursus extends Component<{}, State> {
+export class Ursus extends Component<unknown, State> {
   override state: State = {
     next: shapeCollections[0][0],
     active: null,
@@ -36,7 +36,7 @@ export class Ursus extends Component<{}, State> {
   }
   timer: number | undefined
 
-  constructor(props: {}) {
+  constructor(props: unknown) {
     super(props)
     this.round = this.round.bind(this)
     this.resetGame = this.resetGame.bind(this)
