@@ -1,25 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "lib": ["DOM", "ES2020"],
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "skipLibCheck": true,
-    "useDefineForClassFields": true,
-
-    /* modules */
+    "target": "ES2023",
+    "lib": ["DOM", "ES2023"],
     "module": "ESNext",
+    "noEmit": true,
     "moduleDetection": "force",
-    "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* type checking */
+    "jsx": "react-jsx",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -29,5 +20,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "rsbuild.config.ts"]
 }
