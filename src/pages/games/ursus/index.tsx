@@ -14,6 +14,7 @@ import {
   WIDTH,
 } from "./configure"
 import { matrix, random } from "@/utils/array"
+import { NodeJS } from "timers"
 
 export type Panel = (string | null)[][]
 type Status = "idle" | "gaming" | "over"
@@ -26,7 +27,7 @@ type State = {
   status: Status
 }
 
-export class Ursus extends Component<{}, State> {
+export class Ursus extends Component<void, State> {
   override state: State = {
     next: shapeCollections[0][0],
     active: null,
@@ -34,10 +35,10 @@ export class Ursus extends Component<{}, State> {
     score: 0,
     status: "idle",
   }
-  timer: number | undefined
+  timer?: NodeJS.Timeout
 
-  constructor(props: {}) {
-    super(props)
+  constructor() {
+    super()
     this.round = this.round.bind(this)
     this.resetGame = this.resetGame.bind(this)
     this.onKeydown = this.onKeydown.bind(this)

@@ -3,6 +3,7 @@ import { pluginSass } from "@rsbuild/plugin-sass"
 import remarkMath from "remark-math"
 import rehypeKatex from "rehype-katex"
 
+// eslint-disable-next-line no-restricted-syntax
 export default defineConfig({
   root: "docs",
   lang: "zh",
@@ -17,6 +18,9 @@ export default defineConfig({
   builderConfig: {
     plugins: [pluginSass()],
     server: { host: "127.0.0.1" },
+    output: {
+      distPath: "dist",
+    },
     html: {
       tags: [
         {
