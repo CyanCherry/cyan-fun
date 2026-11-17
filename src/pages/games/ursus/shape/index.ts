@@ -2,10 +2,10 @@ import { I } from "./I"
 import { L } from "./L"
 import { MirroredL } from "./MirroredL"
 import { S } from "./S"
+import type { Shape } from "./Shape"
 import { Square } from "./Square"
 import { T } from "./T"
 import { Z } from "./Z"
-import { Shape } from "./Shape"
 
 // 5rr5y of grouped shapes
 export const shapeCollections: Shape[][] = [

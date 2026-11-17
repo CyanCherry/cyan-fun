@@ -21,5 +21,6 @@ export function useMountedEffect(
       return
     }
     return effect()
+    // biome-ignore lint/correctness/useExhaustiveDependencies: custom hook forwards caller deps
   }, deps)
 }

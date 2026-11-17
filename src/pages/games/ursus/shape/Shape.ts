@@ -1,5 +1,5 @@
-import type { Panel } from "../index"
 import { HEIGHT, WIDTH } from "../configure"
+import type { Panel } from "../index"
 
 export const ERR_ICONS_LEN = new Error("invalid icons LENGTH")
 export const ERR_OUT_OF_PANEL = new Error("OUT of game panel")
@@ -14,34 +14,34 @@ export interface Block {
   readonly y: number
 }
 
-export const Blocks = {
-  left(blocks: Block[]): Block[] {
+export namespace Blocks {
+  export function left(blocks: Block[]): Block[] {
     return blocks.map((block) => ({
       ...block,
       x: block.x - 1,
     }))
-  },
+  }
 
-  right(blocks: Block[]): Block[] {
+  export function right(blocks: Block[]): Block[] {
     return blocks.map((block) => ({
       ...block,
       x: block.x + 1,
     }))
-  },
+  }
 
-  down(blocks: Block[]): Block[] {
+  export function down(blocks: Block[]): Block[] {
     return blocks.map((block) => ({
       ...block,
       y: block.y + 1,
     }))
-  },
+  }
 
-  up(blocks: Block[]): Block[] {
+  export function up(blocks: Block[]): Block[] {
     return blocks.map((block) => ({
       ...block,
       y: block.y - 1,
     }))
-  },
+  }
 }
 
 // immutable

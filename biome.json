@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "includes": ["**", "!dist", "!node_modules"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "semicolons": "asNeeded",
+      "trailingCommas": "all"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "react": "recommended"
+    },
+    "rules": {
+      "preset": "recommended",
+      "a11y": "off",
+      "correctness": {
+        "noUnusedFunctionParameters": "off"
+      },
+      "style": {
+        "noDefaultExport": "warn"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noDoubleEquals": "off",
+        "noEmptyBlock": "off",
+        "noEmptyBlockStatements": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["rsbuild.config.ts", "src/env.d.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    }
+  ]
+}

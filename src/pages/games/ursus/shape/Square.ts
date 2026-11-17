@@ -1,5 +1,5 @@
-import { type Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
 import { WIDTH } from "../configure"
+import { type Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
 
 export class Square extends Shape {
   constructor(props: { icons: Block["icon"][] } | { blocks: Block[] }) {

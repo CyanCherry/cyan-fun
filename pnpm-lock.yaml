@@ -242,6 +242,10 @@ snapshots:
 					"specifier": "^1.6.1",
 					"version": "1.6.1",
 				},
+				"@types/mdx": {
+					"specifier": "^2.0.14",
+					"version": "2.0.14",
+				},
 				"@types/node": {
 					"specifier": "^22.20.5",
 					"version": "22.20.5",

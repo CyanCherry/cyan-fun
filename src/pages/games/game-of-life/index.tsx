@@ -140,7 +140,7 @@ export function LifeGame() {
     }),
   )
   const [step, setStep] = useState(1000)
-  const [automata, setAutomata] = useState<number | null>(null)
+  const [automata, setAutomata] = useState<NodeJS.Timeout | null>(null)
 
   // reset world on height or width change
   useEffect(() => {
@@ -193,7 +193,7 @@ export function LifeGame() {
           <span className={styles.label}>Auto</span>
           <Switch
             checked={Boolean(automata)}
-            onChange={(_, v) => {
+            onChange={(e, v) => {
               if (v) {
                 setAutomata(setInterval(evoluteWorld, step))
               } else {
@@ -213,7 +213,7 @@ export function LifeGame() {
             value={step}
             min={SpeedMarks[0].value}
             max={SpeedMarks[SpeedMarks.length - 1].value}
-            onChange={(_, v) => {
+            onChange={(e, v) => {
               if (!Array.isArray(v)) {
                 setStep(v)
                 if (automata) {

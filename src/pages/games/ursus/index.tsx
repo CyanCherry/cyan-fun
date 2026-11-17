@@ -1,7 +1,5 @@
-import styles from "./index.module.scss"
 import { Component } from "react"
-import { ERR_CELL_NOT_EMPTY, ERR_OUT_OF_PANEL, Shape } from "./shape/Shape"
-import { shapeCollections } from "./shape"
+import { matrix, random } from "@/utils/array"
 import {
   ALL_KEYS,
   ANIMATION_DURATION,
@@ -13,7 +11,9 @@ import {
   STEP,
   WIDTH,
 } from "./configure"
-import { matrix, random } from "@/utils/array"
+import styles from "./index.module.scss"
+import { shapeCollections } from "./shape"
+import { ERR_CELL_NOT_EMPTY, ERR_OUT_OF_PANEL, type Shape } from "./shape/Shape"
 
 export type Panel = (string | null)[][]
 type Status = "idle" | "gaming" | "over"
@@ -26,7 +26,7 @@ type State = {
   status: Status
 }
 
-export class Ursus extends Component<unknown, State> {
+export class Ursus extends Component<Record<never, never>, State> {
   override state: State = {
     next: shapeCollections[0][0],
     active: null,
@@ -34,9 +34,9 @@ export class Ursus extends Component<unknown, State> {
     score: 0,
     status: "idle",
   }
-  timer: number | undefined
+  timer?: NodeJS.Timeout
 
-  constructor(props: unknown) {
+  constructor(props: Record<never, never>) {
     super(props)
     this.round = this.round.bind(this)
     this.resetGame = this.resetGame.bind(this)

@@ -1,5 +1,5 @@
-import { type Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
 import { WIDTH } from "../configure"
+import { type Block, Blocks, ERR_ICONS_LEN, Shape } from "./Shape"
 
 export class I extends Shape {
   readonly direction: number = 0
@@ -7,23 +7,19 @@ export class I extends Shape {
   constructor(
     props: { icons: Block["icon"][] } | { blocks: Block[]; direction: number },
   ) {
-    let blocks: Block[]
     if ("icons" in props) {
       if (props.icons.length !== 4) {
         throw ERR_ICONS_LEN
       }
       const center = ~~(WIDTH / 2)
-      blocks = [
+      super([
         { x: center - 1, y: -1, icon: props.icons[0] },
         { x: center, y: -1, icon: props.icons[1] },
         { x: center + 1, y: -1, icon: props.icons[2] },
         { x: center + 2, y: -1, icon: props.icons[3] },
-      ]
+      ])
     } else {
-      blocks = props.blocks
-    }
-    super(blocks)
-    if (!("icons" in props)) {
+      super(props.blocks)
       this.direction = props.direction
     }
   }
