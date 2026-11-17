@@ -1,5 +1,5 @@
 import styles from "./index.module.scss"
-import { Link } from "react-router-dom"
+import { Link } from "@rspress/core/runtime"
 
 export function Home() {
   return (
@@ -11,10 +11,14 @@ export function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get starting by <code className={styles.code}>Rsbuild</code>
+          学习笔记、小游戏，还有一些网页实验。
         </p>
 
         <div className={styles.grid}>
+          <Link to="/happy-llm/" className={styles.card}>
+            <h2>LLM &rarr;</h2>
+            <p>CUDA、NLP、Transformer 的学习记录。</p>
+          </Link>
           <Link to="/games/game-of-life" className={styles.card}>
             <h2>Game of Life &rarr;</h2>
             <p>Yeah, the Game of Life you know.</p>
@@ -31,12 +35,8 @@ export function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://rsbuild.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by Rsbuild
+        <a href="https://rspress.rs/" target="_blank" rel="noopener noreferrer">
+          Powered by Rspress
         </a>
       </footer>
     </div>

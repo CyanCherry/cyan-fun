@@ -1,0 +1,7 @@
+[
+  { "text": "首页", "link": "/", "activeMatch": "^/$" },
+  { "text": "LLM", "link": "/happy-llm/", "activeMatch": "^/happy-llm/" },
+  { "text": "Game of Life", "link": "/games/game-of-life" },
+  { "text": "Ursus", "link": "/games/ursus" },
+  { "text": "Sticky Position", "link": "/sticky" }
+]

@@ -1,5 +1,5 @@
 import styles from "./index.module.scss"
-import { Link } from "react-router-dom"
+import { Link } from "@rspress/core/runtime"
 
 export function _404() {
   return (
